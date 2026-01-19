@@ -4,69 +4,232 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>TDKS — Home</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <meta name="description" content="TDKS — Community for language, culture, worship and social service">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="index.html">TDKS</a>
-      <nav class="nav">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="events.html">Events</a>
-        <a href="contact.html">Contact</a>
-        <a class="donate" href="#donate">Donate</a>
-      </nav>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="./">
+      <img src="assets/logo.png" alt="TDKS logo" class="logo">
+      <span class="brand-text">TDKS</span>
+    </a>
+
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="./" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="events.html" class="nav-link">Events</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+      <a href="#donate" class="btn-donate">Donate</a>
+    </nav>
+
+    <button class="mobile-toggle" aria-label="Toggle menu">☰</button>
+  </div>
+</header>
+
+<!-- FULL WIDTH SLIDER (responsive images using <picture>) -->
+<section class="hero-slider" aria-label="Featured content">
+  <div class="slider" id="mainSlider" data-autoplay="true" data-interval="6000">
+    <div class="slides">
+      <!-- Slide 1 -->
+      <div class="slide" aria-hidden="false">
+        <picture>
+          <!-- WebP for modern browsers -->
+          <source srcset="assets/slider-1.webp" type="image/webp" />
+          <!-- Mobile smaller image -->
+          <source srcset="assets/slider-1-small.jpg" media="(max-width: 719px)" />
+          <img src="assets/slider-1.jpg" alt="Annual Cultural Festival — music and dance" class="slide-img" />
+        </picture>
+        <div class="slide-inner container">
+          <h2 class="slide-title">Annual Cultural Festival</h2>
+          <p class="slide-sub">Music, dance, food stalls and community service — join us</p>
+          <a class="btn-primary" href="events.html">Upcoming Events</a>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="slide" aria-hidden="true">
+        <picture>
+          <source srcset="assets/slider-2.webp" type="image/webp" />
+          <source srcset="assets/slider-2-small.jpg" media="(max-width: 719px)" />
+          <img src="assets/slider-2.jpg" alt="Volunteers serving the community" class="slide-img" />
+        </picture>
+        <div class="slide-inner container">
+          <h2 class="slide-title">Volunteer & Serve</h2>
+          <p class="slide-sub">Help organize programs and outreach activities</p>
+          <a class="btn-primary" href="contact.html#volunteer">Volunteer</a>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="slide" aria-hidden="true">
+        <picture>
+          <source srcset="assets/slider-3.webp" type="image/webp" />
+          <source srcset="assets/slider-3-small.jpg" media="(max-width: 719px)" />
+          <img src="assets/slider-3.jpg" alt="People donating and supporting community drives" class="slide-img" />
+        </picture>
+        <div class="slide-inner container">
+          <h2 class="slide-title">Support Our Work</h2>
+          <p class="slide-sub">Donations fund community projects & education</p>
+          <a class="btn-primary" href="contact.html#donation">Donate</a>
+        </div>
+      </div>
     </div>
-  </header>
 
-  <main>
-    <section class="hero">
-      <div class="container">
-        <h1>Welcome to TDKS</h1>
-        <p class="lead">A community dedicated to culture, worship, education and social service.</p>
+    <button class="slider-prev" aria-label="Previous slide">‹</button>
+    <button class="slider-next" aria-label="Next slide">›</button>
+
+    <div class="slider-dots" role="tablist" aria-label="Slide dots"></div>
+  </div>
+</section>
+
+<main>
+  <section class="container intro">
+    <article class="card">
+      <h2>About Us</h2>
+      <p>TDKS is a volunteer non-profit that promotes Kannada language, culture and community service. We run festivals, classes, and outreach programs — all are welcome to join and support.</p>
+      <p><a href="about.html">Read more →</a></p>
+    </article>
+
+    <div class="three-cards">
+      <div class="card small">
+        <h3>Events</h3>
+        <p>Monthly activities, cultural programs and annual festival.</p>
+        <a href="events.html">View events →</a>
       </div>
-    </section>
 
-    <section class="container content">
-      <h2>Latest News</h2>
-      <article class="card">
-        <h3>Annual Cultural Festival — March 21, 2026</h3>
-        <p>Join our annual festival with cultural programs, food, and community services. All are welcome.</p>
-      </article>
-
-      <div class="grid">
-        <div class="card">
-          <h4>About Us</h4>
-          <p>TDKS (Thiruvananthapuram Diocese Kerala Society) fosters community bonding, religious harmony, and social outreach.</p>
-          <p><a href="about.html">Read more →</a></p>
-        </div>
-
-        <div class="card">
-          <h4>Events</h4>
-          <p>Regular worship services, classes, and outreach programs. View upcoming events and how to participate.</p>
-          <p><a href="events.html">View events →</a></p>
-        </div>
-
-        <div class="card" id="donate">
-          <h4>Donate</h4>
-          <p>Your donations help run community programs and support those in need. We accept online transfers and offline contributions.</p>
-          <p><a href="contact.html#donation">How to donate →</a></p>
-        </div>
+      <div class="card small">
+        <h3>Volunteer</h3>
+        <p>Help organize, teach or join our outreach initiatives.</p>
+        <a href="contact.html#volunteer">Sign up →</a>
       </div>
-    </section>
-  </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div>
-        <strong>TDKS</strong>
-        <div class="muted">Bringing community & culture together</div>
+      <div class="card small" id="donate">
+        <h3>Donate</h3>
+        <p>Your donations help run community programs and support those in need.</p>
+        <a href="contact.html#donation">How to donate →</a>
       </div>
-      <div class="muted">© <span id="year"></span> TDKS</div>
     </div>
-  </footer>
+  </section>
 
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <section class="container events-preview">
+    <h2>Upcoming Activities</h2>
+    <ul class="events-list">
+      <li><time>2026-03-21</time><div><strong>Annual Cultural Festival</strong><p>Music, dance, food stalls and community services.</p></div></li>
+      <li><time>2026-05-10</time><div><strong>Community Service Day</strong><p>Outreach program and health camp.</p></div></li>
+    </ul>
+    <p class="more"><a href="events.html">See full events calendar →</a></p>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <strong>TDKS</strong>
+      <p class="muted">Bringing community &amp; culture together</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <address>
+        512 Saint Jorge Avenue<br>
+        Mountain House, CA 95391<br>
+        Phone: +1 (555) 123-4567<br>
+        <a href="mailto:info@tdks.org">info@tdks.org</a>
+      </address>
+    </div>
+
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul class="quick-links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="copyright">
+    © <span id="year"></span> TDKS — All rights reserved
+  </div>
+</footer>
+
+<script>
+  // mobile menu toggle
+  const toggle = document.querySelector('.mobile-toggle');
+  if (toggle) toggle.addEventListener('click', () => document.querySelector('.nav').classList.toggle('open'));
+
+  // Slider logic (supports picture/img slides)
+  (function(){
+    const slider = document.getElementById('mainSlider');
+    if (!slider) return;
+    const slidesWrap = slider.querySelector('.slides');
+    const slides = Array.from(slidesWrap.querySelectorAll('.slide'));
+    const prevBtn = slider.querySelector('.slider-prev');
+    const nextBtn = slider.querySelector('.slider-next');
+    const dotsWrap = slider.querySelector('.slider-dots');
+    const autoplay = slider.dataset.autoplay === 'true';
+    const interval = parseInt(slider.dataset.interval || '6000', 10);
+
+    let current = 0;
+    let timer = null;
+
+    function goTo(index) {
+      index = (index + slides.length) % slides.length;
+      slides.forEach((s, i) => {
+        const active = i === index;
+        s.setAttribute('aria-hidden', active ? 'false' : 'true');
+        s.classList.toggle('active', active);
+        // update tab/aria-selected for dots (if present)
+      });
+      Array.from(dotsWrap.children).forEach((b,i)=> b.classList.toggle('active', i===index));
+      current = index;
+    }
+
+    function next() { goTo(current + 1); }
+    function prev() { goTo(current - 1); }
+
+    // build dots
+    slides.forEach((_, i) => {
+      const btn = document.createElement('button');
+      btn.className = i === 0 ? 'dot active' : 'dot';
+      btn.type = 'button';
+      btn.setAttribute('aria-label', 'Go to slide ' + (i+1));
+      btn.addEventListener('click', () => { goTo(i); restart(); });
+      dotsWrap.appendChild(btn);
+    });
+
+    nextBtn.addEventListener('click', () => { next(); restart(); });
+    prevBtn.addEventListener('click', () => { prev(); restart(); });
+
+    function start() { if (autoplay) timer = setInterval(next, interval); }
+    function stop() { if (timer) { clearInterval(timer); timer = null; } }
+    function restart() { stop(); start(); }
+
+    // keyboard navigation
+    slider.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') { next(); restart(); }
+      if (e.key === 'ArrowLeft') { prev(); restart(); }
+    });
+
+    // init
+    goTo(0);
+    start();
+
+    // pause on hover
+    slider.addEventListener('mouseenter', stop);
+    slider.addEventListener('mouseleave', start);
+  })();
+
+  // remove index.html from URL if present (safe fallback)
+  if (window.location.pathname.endsWith('index.html')) {
+    const clean = window.location.pathname.replace(/index\.html$/, '') + window.location.search + window.location.hash;
+    history.replaceState(null, '', clean);
+  }
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
