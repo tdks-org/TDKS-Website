@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TDKS — Contact</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">TDKS</a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="events.html">Events</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container content">
+    <h1>Contact Us</h1>
+
+    <section>
+      <h2>Address</h2>
+      <p>123 Community Lane, City, State, ZIP</p>
+
+      <h2>Phone & Email</h2>
+      <p>Phone: +1 (555) 123-4567</p>
+      <p>Email: <a href="mailto:info@tdks.org">info@tdks.org</a></p>
+    </section>
+
+    <section id="donation">
+      <h2>Donate</h2>
+      <p>Bank transfers and online donations help us run programs. For bank details or to donate online, email <a href="mailto:donate@tdks.org">donate@tdks.org</a>.</p>
+    </section>
+
+    <section>
+      <h2>Send a Message</h2>
+      <form action="mailto:info@tdks.org" method="post" enctype="text/plain" class="contact-form">
+        <label>Name<br/><input name="name" required /></label>
+        <label>Email<br/><input name="email" type="email" required /></label>
+        <label>Message<br/><textarea name="message" rows="6" required></textarea></label>
+        <button type="submit">Send Email</button>
+      </form>
+
+      <p class="muted">If you want a hosted form (no client email client), consider Formspree or Netlify Forms — I can help integrate one.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>TDKS</strong>
+        <div class="muted">Bringing community & culture together</div>
+      </div>
+      <div class="muted">© <span id="year"></span> TDKS</div>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

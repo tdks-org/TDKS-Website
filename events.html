@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TDKS — Events</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">TDKS</a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="events.html">Events</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container content">
+    <h1>Upcoming Events</h1>
+
+    <ul class="events-list">
+      <li class="event">
+        <time>2026-03-21</time>
+        <div>
+          <h3>Annual Cultural Festival</h3>
+          <p>Programs, music, food stalls and community services. All welcome.</p>
+        </div>
+      </li>
+
+      <li class="event">
+        <time>2026-05-10</time>
+        <div>
+          <h3>Community Service Day</h3>
+          <p>Outreach program to assist nearby communities with food and health-check camps.</p>
+        </div>
+      </li>
+    </ul>
+
+    <p>To propose an event or help with organization, please <a href="contact.html">contact us</a>.</p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>TDKS</strong>
+        <div class="muted">Bringing community & culture together</div>
+      </div>
+      <div class="muted">© <span id="year"></span> TDKS</div>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

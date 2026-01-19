@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TDKS — Home</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">TDKS</a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="events.html">Events</a>
+        <a href="contact.html">Contact</a>
+        <a class="donate" href="#donate">Donate</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Welcome to TDKS</h1>
+        <p class="lead">A community dedicated to culture, worship, education and social service.</p>
+      </div>
+    </section>
+
+    <section class="container content">
+      <h2>Latest News</h2>
+      <article class="card">
+        <h3>Annual Cultural Festival — March 21, 2026</h3>
+        <p>Join our annual festival with cultural programs, food, and community services. All are welcome.</p>
+      </article>
+
+      <div class="grid">
+        <div class="card">
+          <h4>About Us</h4>
+          <p>TDKS (Thiruvananthapuram Diocese Kerala Society) fosters community bonding, religious harmony, and social outreach.</p>
+          <p><a href="about.html">Read more →</a></p>
+        </div>
+
+        <div class="card">
+          <h4>Events</h4>
+          <p>Regular worship services, classes, and outreach programs. View upcoming events and how to participate.</p>
+          <p><a href="events.html">View events →</a></p>
+        </div>
+
+        <div class="card" id="donate">
+          <h4>Donate</h4>
+          <p>Your donations help run community programs and support those in need. We accept online transfers and offline contributions.</p>
+          <p><a href="contact.html#donation">How to donate →</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>TDKS</strong>
+        <div class="muted">Bringing community & culture together</div>
+      </div>
+      <div class="muted">© <span id="year"></span> TDKS</div>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
