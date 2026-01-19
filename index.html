@@ -3,78 +3,65 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>TDKS — Home</title>
+  <title>Tri Delta Kannada Sangha — Home</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <meta name="description" content="TDKS — Community for language, culture, worship and social service">
+  <meta name="description" content="Tri Delta Kannada Sangha (TDKS) — Community for language, culture and service">
 </head>
 <body>
 
-<header class="site-header">
-  <div class="container header-inner">
-    <a class="brand" href="./">
-      <img src="assets/logo.png" alt="TDKS logo" class="logo">
-      <span class="brand-text">TDKS</span>
-    </a>
+  <!-- thin mustard strip across full width (like the reference) -->
+  <div class="top-strip" aria-hidden="true"></div>
 
-    <nav class="nav" aria-label="Primary navigation">
-      <a href="./" class="nav-link">Home</a>
-      <a href="about.html" class="nav-link">About</a>
-      <a href="events.html" class="nav-link">Events</a>
-      <a href="contact.html" class="nav-link">Contact</a>
-      <a href="#donate" class="btn-donate">Donate</a>
-    </nav>
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a class="brand" href="./" aria-label="Tri Delta Kannada Sangha home">
+        <img src="assets/logo.png" alt="TDKS logo" class="logo">
+        <span class="brand-text">Tri Delta Kannada Sangha - TDKS</span>
+      </a>
 
-    <button class="mobile-toggle" aria-label="Toggle menu">☰</button>
-  </div>
-</header>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="./" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="events.html" class="nav-link">Event Calendar</a>
+        <a href="initiatives.html" class="nav-link">Initiatives</a>
+        <a href="media.html" class="nav-link">Media</a>
+      </nav>
 
-<!-- FULL WIDTH SLIDER (responsive images using <picture>) -->
+      <div class="header-actions">
+        <a href="#donate" class="btn-donate">Donate</a>
+        <button class="mobile-toggle" aria-label="Toggle menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+<!-- HERO SLIDER (half viewport height, bordered images) -->
 <section class="hero-slider" aria-label="Featured content">
-  <div class="slider" id="mainSlider" data-autoplay="true" data-interval="6000">
+  <div class="slider" id="mainSlider" data-autoplay="true" data-interval="5000" tabindex="0">
     <div class="slides">
       <!-- Slide 1 -->
-      <div class="slide" aria-hidden="false">
-        <picture>
-          <!-- WebP for modern browsers -->
-          <source srcset="assets/slider-1.webp" type="image/webp" />
-          <!-- Mobile smaller image -->
-          <source srcset="assets/slider-1-small.jpg" media="(max-width: 719px)" />
-          <img src="assets/slider-1.jpg" alt="Annual Cultural Festival — music and dance" class="slide-img" />
-        </picture>
-        <div class="slide-inner container">
-          <h2 class="slide-title">Annual Cultural Festival</h2>
-          <p class="slide-sub">Music, dance, food stalls and community service — join us</p>
-          <a class="btn-primary" href="events.html">Upcoming Events</a>
-        </div>
+      <div class="slide" role="group" aria-roledescription="slide" aria-label="1">
+        <img src="assets/slider-1.jpg" alt="Group Photo of TDKS members" class="slide-img" />
       </div>
 
       <!-- Slide 2 -->
-      <div class="slide" aria-hidden="true">
-        <picture>
-          <source srcset="assets/slider-2.webp" type="image/webp" />
-          <source srcset="assets/slider-2-small.jpg" media="(max-width: 719px)" />
-          <img src="assets/slider-2.jpg" alt="Volunteers serving the community" class="slide-img" />
-        </picture>
-        <div class="slide-inner container">
-          <h2 class="slide-title">Volunteer & Serve</h2>
-          <p class="slide-sub">Help organize programs and outreach activities</p>
-          <a class="btn-primary" href="contact.html#volunteer">Volunteer</a>
-        </div>
+      <div class="slide" role="group" aria-roledescription="slide" aria-label="2">
+        <img src="assets/slider-2.jpg" alt="Volunteers serving the community" class="slide-img" />
       </div>
 
       <!-- Slide 3 -->
-      <div class="slide" aria-hidden="true">
-        <picture>
-          <source srcset="assets/slider-3.webp" type="image/webp" />
-          <source srcset="assets/slider-3-small.jpg" media="(max-width: 719px)" />
-          <img src="assets/slider-3.jpg" alt="People donating and supporting community drives" class="slide-img" />
-        </picture>
-        <div class="slide-inner container">
-          <h2 class="slide-title">Support Our Work</h2>
-          <p class="slide-sub">Donations fund community projects & education</p>
-          <a class="btn-primary" href="contact.html#donation">Donate</a>
-        </div>
+      <div class="slide" role="group" aria-roledescription="slide" aria-label="3">
+        <img src="assets/slider-3.jpg" alt="People donating and supporting community drives" class="slide-img" />
+      </div>
+
+      <!-- Slide 4 -->
+      <div class="slide" role="group" aria-roledescription="slide" aria-label="4">
+        <img src="assets/slider-4.jpg" alt="Cultural performance" class="slide-img" />
+      </div>
+
+      <!-- Slide 5 -->
+      <div class="slide" role="group" aria-roledescription="slide" aria-label="5">
+        <img src="assets/slider-5.jpg" alt="Community event" class="slide-img" />
       </div>
     </div>
 
@@ -159,46 +146,51 @@
 <script>
   // mobile menu toggle
   const toggle = document.querySelector('.mobile-toggle');
-  if (toggle) toggle.addEventListener('click', () => document.querySelector('.nav').classList.toggle('open'));
+  toggle && toggle.addEventListener('click', () => {
+    document.querySelector('.nav').classList.toggle('open');
+    document.querySelector('.header-actions').classList.toggle('open');
+  });
 
-  // Slider logic (supports picture/img slides)
-  (function(){
+  // Slider logic: slides arranged horizontally; transform slides container to replace the screen
+  (function() {
     const slider = document.getElementById('mainSlider');
     if (!slider) return;
+
     const slidesWrap = slider.querySelector('.slides');
     const slides = Array.from(slidesWrap.querySelectorAll('.slide'));
     const prevBtn = slider.querySelector('.slider-prev');
     const nextBtn = slider.querySelector('.slider-next');
     const dotsWrap = slider.querySelector('.slider-dots');
     const autoplay = slider.dataset.autoplay === 'true';
-    const interval = parseInt(slider.dataset.interval || '6000', 10);
+    // ensure at least 5000ms interval
+    let interval = parseInt(slider.dataset.interval || '5000', 10);
+    if (isNaN(interval) || interval < 5000) interval = 5000;
 
     let current = 0;
     let timer = null;
 
-    function goTo(index) {
-      index = (index + slides.length) % slides.length;
-      slides.forEach((s, i) => {
-        const active = i === index;
-        s.setAttribute('aria-hidden', active ? 'false' : 'true');
-        s.classList.toggle('active', active);
-        // update tab/aria-selected for dots (if present)
-      });
-      Array.from(dotsWrap.children).forEach((b,i)=> b.classList.toggle('active', i===index));
-      current = index;
+    function updatePosition() {
+      slidesWrap.style.transform = 'translateX(' + (-current * 100) + 'vw)';
+      Array.from(dotsWrap.children).forEach((d,i)=> d.classList.toggle('active', i===current));
+      slides.forEach((s,i)=> s.setAttribute('aria-hidden', i===current ? 'false' : 'true'));
     }
 
+    function goTo(index) {
+      index = (index + slides.length) % slides.length;
+      current = index;
+      updatePosition();
+    }
     function next() { goTo(current + 1); }
     function prev() { goTo(current - 1); }
 
-    // build dots
+    // create dots
     slides.forEach((_, i) => {
-      const btn = document.createElement('button');
-      btn.className = i === 0 ? 'dot active' : 'dot';
-      btn.type = 'button';
-      btn.setAttribute('aria-label', 'Go to slide ' + (i+1));
-      btn.addEventListener('click', () => { goTo(i); restart(); });
-      dotsWrap.appendChild(btn);
+      const b = document.createElement('button');
+      b.className = i===0 ? 'dot active' : 'dot';
+      b.type = 'button';
+      b.setAttribute('aria-label', 'Go to slide ' + (i+1));
+      b.addEventListener('click', () => { goTo(i); restart(); });
+      dotsWrap.appendChild(b);
     });
 
     nextBtn.addEventListener('click', () => { next(); restart(); });
@@ -208,22 +200,45 @@
     function stop() { if (timer) { clearInterval(timer); timer = null; } }
     function restart() { stop(); start(); }
 
-    // keyboard navigation
+    // keyboard navigation (left/right)
     slider.addEventListener('keydown', (e) => {
       if (e.key === 'ArrowRight') { next(); restart(); }
       if (e.key === 'ArrowLeft') { prev(); restart(); }
     });
 
-    // init
-    goTo(0);
-    start();
+    // touch swipe (basic)
+    let touchStartX = null;
+    slidesWrap.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; stop(); });
+    slidesWrap.addEventListener('touchend', (e) => {
+      if (touchStartX === null) return;
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(dx) > 50) { dx < 0 ? next() : prev(); }
+      touchStartX = null;
+      restart();
+    });
 
-    // pause on hover
+    // init
+    updatePosition();
+    start();
     slider.addEventListener('mouseenter', stop);
     slider.addEventListener('mouseleave', start);
+    window.addEventListener('resize', updatePosition);
   })();
 
-  // remove index.html from URL if present (safe fallback)
+  // header: shadow when scrolled
+  (function(){
+    const header = document.querySelector('.site-header');
+    if (!header) return;
+    function check() {
+      if (window.scrollY > 8) header.classList.add('scrolled');
+      else header.classList.remove('scrolled');
+    }
+    window.addEventListener('scroll', check, {passive:true});
+    window.addEventListener('resize', check);
+    check();
+  })();
+
+  // drop index.html from URL if present
   if (window.location.pathname.endsWith('index.html')) {
     const clean = window.location.pathname.replace(/index\.html$/, '') + window.location.search + window.location.hash;
     history.replaceState(null, '', clean);
