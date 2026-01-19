@@ -3,21 +3,20 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>ಟ್ರೈ ಡೆಲ್ಟಾ ಕನ್ನಡ ಸಂಘ</title>
+  <title>ಟ್ರೈ ಡೆಲ್ಟಾ ಕನ್ನಡ ಸಂಘ | Tridelta Kannada Sangha</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <meta name="description" content="Tri Delta Kannada Sangha (TDKS) — Community for language, culture and service">
 </head>
 
-<!-- thin mustard strip across full width (like the reference) -->
-  <div class="top-strip" aria-hidden="true"></div>
-
 <body>
+  <!-- thin mustard strip across full width -->
+  <div class="top-strip" aria-hidden="true"></div>
   <header class="site-header" role="banner">
     <div class="container header-inner">
       <a class="brand" href="./" aria-label="Tri Delta Kannada Sangha home">
         <img src="assets/logo.png" alt="TDKS logo" class="logo">
-        <span class="brand-text">ಟ್ರೈ ಡೆಲ್ಟಾ ಕನ್ನಡ ಸಂಘ - TDKS</span>
+        <span class="brand-text">ಟ್ರೈ ಡೆಲ್ಟಾ ಕನ್ನಡ ಸಂಘ | Tridelta Kannada Sangha</span>
       </a>
 
       <nav class="nav" aria-label="Primary navigation">
@@ -73,41 +72,78 @@
 
 <main>
   <section class="container intro">
-    <article class="card">
+    <article class="home-block">
       <h2>About Us</h2>
       <p>Tri Delta Kannada Sangha (ಟ್ರೈ ಡೆಲ್ಟಾ ಕನ್ನಡ ಸಂಘ) is a nonprofit community organization founded to unite Kannadigas and promote the beauty of our language, art, and culture.</p>
       <p><a href="about.html">Read more →</a></p>
     </article>
 
     <div class="three-cards">
-      <div class="card small">
-        <h3>Events</h3>
+      <div class="home-block home-block--small">
+        <h3>Upcoming Events</h3>
         <p>Monthly activities, cultural programs and annual festival.</p>
         <a href="events.html">View events →</a>
       </div>
 
-      <div class="card small">
+      <div class="home-block home-block--small">
         <h3>Volunteer</h3>
         <p>Help organize, teach or join our outreach initiatives.</p>
         <a href="contact.html#volunteer">Sign up →</a>
       </div>
 
-      <div class="card small" id="donate">
+      <div class="home-block home-block--small" id="donate">
         <h3>Donate</h3>
         <p>Your donations help run community programs and support those in need.</p>
         <a href="contact.html#donation">How to donate →</a>
       </div>
     </div>
   </section>
+
+  <section class="container sponsors" aria-label="Sponsors">
+    <h2 class="section-title">Our Sponsors</h2>
+
+    <div class="slider sponsor-slider" id="sponsorSlider" data-autoplay="true" data-interval="6000" tabindex="0">
+      <div class="slides">
+        <div class="slide" role="group" aria-roledescription="slide" aria-label="Sponsor 1">
+          <figure class="sponsor-figure">
+            <img src="assets/sponsor-1.png" alt="Sponsor" class="slide-img" />
+            <figcaption class="sponsor-caption">Premier Annual Sponsor</figcaption>
+          </figure>
+        </div>
+
+        <div class="slide" role="group" aria-roledescription="slide" aria-label="Sponsor 2">
+          <figure class="sponsor-figure">
+            <img src="assets/sponsor-2.png" alt="Sponsor" class="slide-img" />
+            <figcaption class="sponsor-caption">Grand Annual Sponsor</figcaption>
+          </figure>
+        </div>
+
+        <div class="slide" role="group" aria-roledescription="slide" aria-label="Sponsor 3">
+          <figure class="sponsor-figure">
+            <img src="assets/sponsor-3.png" alt="Sponsor" class="slide-img" />
+            <figcaption class="sponsor-caption">Gold Annual Sponsor</figcaption>
+          </figure>
+        </div>
+
+        <div class="slide" role="group" aria-roledescription="slide" aria-label="Sponsor 4">
+          <figure class="sponsor-figure">
+            <img src="assets/sponsor-4.png" alt="Sponsor" class="slide-img" />
+            <figcaption class="sponsor-caption">Proud Annual Sponsor</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <button class="slider-prev" aria-label="Previous sponsor">‹</button>
+      <button class="slider-next" aria-label="Next sponsor">›</button>
+
+      <div class="slider-dots" role="tablist" aria-label="Sponsor dots"></div>
+    </div>
+  </section>
+
 </main>
 
 <footer class="site-footer">
   <div class="container footer-inner">
-    <div class="footer-col">
-      <strong>TDKS</strong>
-      <p class="muted">Bringing community &amp; culture together</p>
-    </div>
-
     <div class="footer-col">
       <h4>Contact</h4>
       <address>
@@ -128,8 +164,8 @@
     </div>
   </div>
 
-  <div class="copyright">
-    © <span id="year"></span> TDKS — All rights reserved
+  <div class="container footer-bottom">
+    <div class="copyright">© 2026 TDKS — All rights reserved</div>
   </div>
 </footer>
 
@@ -141,79 +177,135 @@
     document.querySelector('.header-actions').classList.toggle('open');
   });
 
-  // Slider logic: slides arranged horizontally; transform slides container to replace the screen
+  // Slider logic: supports multiple sliders on the same page (hero + sponsors)
+  // - Hero shows 1 slide at a time
+  // - Sponsors shows multiple logos at a time (swiper-style row)
   (function() {
-    const slider = document.getElementById('mainSlider');
-    if (!slider) return;
+    const sliders = Array.from(document.querySelectorAll('.slider'));
+    sliders.forEach((slider) => {
+      const slidesWrap = slider.querySelector('.slides');
+      if (!slidesWrap) return;
 
-    const slidesWrap = slider.querySelector('.slides');
-    const slides = Array.from(slidesWrap.querySelectorAll('.slide'));
-    const prevBtn = slider.querySelector('.slider-prev');
-    const nextBtn = slider.querySelector('.slider-next');
-    const dotsWrap = slider.querySelector('.slider-dots');
-    const autoplay = slider.dataset.autoplay === 'true';
-    // ensure at least 5000ms interval
-    let interval = parseInt(slider.dataset.interval || '5000', 10);
-    if (isNaN(interval) || interval < 5000) interval = 5000;
+      const slides = Array.from(slidesWrap.querySelectorAll('.slide'));
+      const prevBtn = slider.querySelector('.slider-prev');
+      const nextBtn = slider.querySelector('.slider-next');
+      const dotsWrap = slider.querySelector('.slider-dots');
+      const autoplay = slider.dataset.autoplay === 'true';
 
-    let current = 0;
-    let timer = null;
+      // ensure at least 5000ms interval
+      let interval = parseInt(slider.dataset.interval || '5000', 10);
+      if (isNaN(interval) || interval < 5000) interval = 5000;
 
-    function updatePosition() {
-      slidesWrap.style.transform = 'translateX(' + (-current * 100) + 'vw)';
-      Array.from(dotsWrap.children).forEach((d,i)=> d.classList.toggle('active', i===current));
-      slides.forEach((s,i)=> s.setAttribute('aria-hidden', i===current ? 'false' : 'true'));
-    }
+      let current = 0;
+      let timer = null;
+      let touchStartX = null;
+      let lastPerView = null;
 
-    function goTo(index) {
-      index = (index + slides.length) % slides.length;
-      current = index;
+      function getPerView() {
+        // Prefer CSS custom property so media queries can change it
+        const v = getComputedStyle(slider).getPropertyValue('--slides-per-view').trim();
+        const n = parseInt(v || slider.dataset.slidesPerView || '1', 10);
+        return (isNaN(n) || n < 1) ? 1 : n;
+      }
+
+      function maxIndex(perView) {
+        return Math.max(0, slides.length - perView);
+      }
+
+      function rebuildDots(perView) {
+        if (!dotsWrap) return;
+        const pages = maxIndex(perView) + 1;
+        dotsWrap.innerHTML = '';
+        for (let i = 0; i < pages; i++) {
+          const b = document.createElement('button');
+          b.className = i === 0 ? 'dot active' : 'dot';
+          b.type = 'button';
+          b.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+          b.addEventListener('click', () => { goTo(i); restart(); });
+          dotsWrap.appendChild(b);
+        }
+      }
+
+      function updatePosition() {
+        const perView = getPerView();
+        const max = maxIndex(perView);
+        if (current > max) current = max;
+
+        // Rebuild dots if perView changed (responsive)
+        if (dotsWrap && lastPerView !== perView) {
+          rebuildDots(perView);
+          lastPerView = perView;
+        }
+
+        // Move by one "card" width (100/perView)
+        const step = 100 / perView;
+        slidesWrap.style.transform = 'translateX(' + (-current * step) + '%)';
+
+        if (dotsWrap) {
+          Array.from(dotsWrap.children).forEach((d, i) => d.classList.toggle('active', i === current));
+        }
+
+        // aria-hidden: show the visible window
+        slides.forEach((s, i) => {
+          const visible = (i >= current) && (i < current + perView);
+          s.setAttribute('aria-hidden', visible ? 'false' : 'true');
+        });
+      }
+
+      function goTo(index) {
+        const perView = getPerView();
+        const max = maxIndex(perView);
+        if (max === 0) {
+          current = 0;
+        } else {
+          // wrap-around behavior
+          if (index < 0) index = max;
+          if (index > max) index = 0;
+          current = index;
+        }
+        updatePosition();
+      }
+      function next() { goTo(current + 1); }
+      function prev() { goTo(current - 1); }
+
+      // create dots (initial)
+      if (dotsWrap) {
+        rebuildDots(getPerView());
+        lastPerView = getPerView();
+      }
+
+      nextBtn && nextBtn.addEventListener('click', () => { next(); restart(); });
+      prevBtn && prevBtn.addEventListener('click', () => { prev(); restart(); });
+
+      function start() { if (autoplay) timer = setInterval(next, interval); }
+      function stop() { if (timer) { clearInterval(timer); timer = null; } }
+      function restart() { stop(); start(); }
+
+      // keyboard navigation (left/right)
+      slider.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') { next(); restart(); }
+        if (e.key === 'ArrowLeft') { prev(); restart(); }
+      });
+
+      // touch swipe (basic)
+      slidesWrap.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; stop(); }, { passive: true });
+      slidesWrap.addEventListener('touchend', (e) => {
+        if (touchStartX === null) return;
+        const dx = e.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(dx) > 50) { dx < 0 ? next() : prev(); }
+        touchStartX = null;
+        restart();
+      }, { passive: true });
+
+      // init
       updatePosition();
-    }
-    function next() { goTo(current + 1); }
-    function prev() { goTo(current - 1); }
-
-    // create dots
-    slides.forEach((_, i) => {
-      const b = document.createElement('button');
-      b.className = i===0 ? 'dot active' : 'dot';
-      b.type = 'button';
-      b.setAttribute('aria-label', 'Go to slide ' + (i+1));
-      b.addEventListener('click', () => { goTo(i); restart(); });
-      dotsWrap.appendChild(b);
+      start();
+      slider.addEventListener('mouseenter', stop);
+      slider.addEventListener('mouseleave', start);
+      window.addEventListener('resize', updatePosition);
     });
-
-    nextBtn.addEventListener('click', () => { next(); restart(); });
-    prevBtn.addEventListener('click', () => { prev(); restart(); });
-
-    function start() { if (autoplay) timer = setInterval(next, interval); }
-    function stop() { if (timer) { clearInterval(timer); timer = null; } }
-    function restart() { stop(); start(); }
-
-    // keyboard navigation (left/right)
-    slider.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight') { next(); restart(); }
-      if (e.key === 'ArrowLeft') { prev(); restart(); }
-    });
-
-    // touch swipe (basic)
-    let touchStartX = null;
-    slidesWrap.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; stop(); });
-    slidesWrap.addEventListener('touchend', (e) => {
-      if (touchStartX === null) return;
-      const dx = e.changedTouches[0].clientX - touchStartX;
-      if (Math.abs(dx) > 50) { dx < 0 ? next() : prev(); }
-      touchStartX = null;
-      restart();
-    });
-
-    // init
-    updatePosition();
-    start();
-    slider.addEventListener('mouseenter', stop);
-    slider.addEventListener('mouseleave', start);
-    window.addEventListener('resize', updatePosition);
   })();
+
 
   // header: shadow when scrolled
   (function(){
@@ -234,7 +326,6 @@
     history.replaceState(null, '', clean);
   }
 
-  document.getElementById('year').textContent = new Date().getFullYear();
 </script>
 </body>
 </html>
