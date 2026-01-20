@@ -547,3 +547,33 @@ main{background:#fff}
 .required{color:#b00020; font-weight:700}
 .consent-row{display:flex; align-items:flex-start; gap:.55rem; font-weight:500}
 .consent-row input{width:auto; margin-top:.2rem}
+
+
+/* =========================
+   Home page free-flow (unboxed)
+   ========================= */
+body.home .home-block{
+  background: transparent;
+  border: 0 !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+}
+body.home .three-cards .home-block{
+  padding-top: 0.25rem !important;
+}
+body.home .three-cards{
+  gap: 2.25rem; /* more airy like screenshot */
+}
+@media (max-width: 999px){
+  body.home .three-cards{gap: 1.25rem;}
+}
+
+body.home .intro .card,
+body.home .intro .section-card{
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+}
