@@ -17,15 +17,15 @@
   <div class="container header-inner">
     <a class="brand" href="./">
       <img src="assets/logo.png" alt="TDKS logo" class="logo">
-      <span class="brand-text">ಟ್ರೈ ಡೆಲ್ಟಾ ಕನ್ನಡ ಸಂಘ - TDKS</span>
+      <span class="brand-text">ಟ್ರೈ ಡೆಲ್ಟಾ ಕನ್ನಡ ಸಂಘ | Tridelta Kannada Sangha</span>
     </a>
 
     <nav class="nav">
       <a href="./" class="nav-link">Home</a>
       <a href="about.html" class="nav-link">About</a>
       <a href="events.html" class="nav-link">Events</a>
+      <a href="donate.html" class="nav-link">Donate</a>
       <a href="contact.html" class="nav-link">Contact</a>
-      <a href="#donate" class="btn-donate">Donate</a>
     </nav>
 
     <button class="mobile-toggle" aria-label="Toggle menu">☰</button>
@@ -34,32 +34,97 @@
 
 <main class="container content">
   <h1>Contact Us</h1>
-
   <section>
-    <h2>Address</h2>
-    <p>5349 High Valley Lane, Antioch, CA 94531</p>
-
-    <h2>Phone & Email</h2>
-    <p>Phone: +1 (917) 640-4714</p>
-    <p>Email: <a href="mailto:sales.tdks@gmail.com">sales.tdks@gmail.com</a></p>
+    <p>5349 High Valley Lane<br>
+        Antioch, CA 94531<br></p>
+    <p>Phone: +1 (917) 640-4714<br>
+    Email: <a href="mailto:sales.tdks@gmail.com">sales.tdks@gmail.com</a></p>
   </section>
 
-  <section id="donation">
-    <h2>Donate</h2>
-    <p>Bank transfers and online donations help us run programs. For bank details or to donate online, email <a href="mailto:donate@tdks.org">donate@tdks.org</a>.</p>
-  </section>
+  
+    <section id="volunteer" class="section">
+      <h1>Volunteer With Us</h1>
+      <div class="container">
+        <div class="section-head">
+          
+          <p>Want to get involved with Tri Delta Kannada Sangha (TDKS)? Please share your details below. We’ll reach out via email with next steps.</p>
+        </div>
 
-  <section id="volunteer">
-    <h2>Volunteer</h2>
-    <p>Interested in volunteering? Please fill out the form below and we'll get back to you.</p>
+        <p class="form-help">
+          Prefer email? Write to <a href="mailto:sales.tdks@gmail.com">sales.tdks@gmail.com</a>.
+        </p>
 
-    <form action="mailto:info@tdks.org" method="post" enctype="text/plain" class="contact-form">
-      <label>Name<br/><input name="name" required /></label>
-      <label>Email<br/><input name="email" type="email" required /></label>
-      <label>Message<br/><textarea name="message" rows="6" required></textarea></label>
-      <button type="submit">Send Email</button>
-    </form>
-  </section>
+        <!-- Static-site friendly: opens user's email app with pre-filled message -->
+        <form id="volunteerForm" class="contact-form" autocomplete="on">
+          <div class="form-row">
+            <label>Full Name <span class="required">*</span>
+              <input name="name" required autocomplete="name" />
+            </label>
+
+            <label>Email <span class="required">*</span>
+              <input name="email" type="email" required autocomplete="email" />
+            </label>
+          </div>
+
+          <div class="form-row">
+            <label>Phone (optional)
+              <input name="phone" type="tel" autocomplete="tel" placeholder="+1 (###) ###-####" />
+            </label>
+
+            <label>City (optional)
+              <input name="city" autocomplete="address-level2" placeholder="Antioch / Brentwood / Pittsburg..." />
+            </label>
+          </div>
+
+          <label>Areas you’d like to help with <span class="required">*</span>
+            <div class="check-grid" role="group" aria-label="Volunteer interests">
+              <label class="check-item"><input type="checkbox" name="interests" value="Event Planning & Logistics"> Event Planning &amp; Logistics</label>
+              <label class="check-item"><input type="checkbox" name="interests" value="Cultural Programs"> Cultural Programs</label>
+              <label class="check-item"><input type="checkbox" name="interests" value="Youth & Kids Activities"> Youth &amp; Kids Activities</label>
+              <label class="check-item"><input type="checkbox" name="interests" value="Food & Hospitality"> Food &amp; Hospitality</label>
+              <label class="check-item"><input type="checkbox" name="interests" value="Sponsorships & Outreach"> Sponsorships &amp; Outreach</label>
+              <label class="check-item"><input type="checkbox" name="interests" value="Social Media / Website"> Social Media / Website</label>
+            </div>
+          </label>
+
+          <div class="form-row">
+            <label>Availability
+              <select name="availability">
+                <option value="Weekends">Weekends</option>
+                <option value="Weekday evenings">Weekday evenings</option>
+                <option value="Flexible">Flexible</option>
+                <option value="Occasional (as needed)">Occasional (as needed)</option>
+              </select>
+            </label>
+
+            <label>Preferred contact
+              <select name="preferred_contact">
+                <option value="Email">Email</option>
+                <option value="Phone">Phone</option>
+                <option value="Either">Either</option>
+              </select>
+            </label>
+          </div>
+
+          <label>Skills / Notes (optional)
+            <textarea name="message" rows="6" placeholder="Tell us what you’d like to help with, relevant experience, languages, etc."></textarea>
+          </label>
+
+          <label class="consent-row">
+            <input type="checkbox" name="consent" required>
+            I agree that TDKS can contact me about volunteering opportunities. <span class="required">*</span>
+          </label>
+
+          <div class="form-actions">
+            <button class="btn-primary" type="submit">Email Volunteer Details</button>
+            <button class="btn-secondary" type="reset">Clear</button>
+          </div>
+
+          <p class="form-help">This will open your email app with a pre-filled message to <strong>sales.tdks@gmail.com</strong>.</p>
+        </form>
+      </div>
+    </section>
+
 </main>
 
 <footer class="site-footer">
@@ -99,6 +164,56 @@
     const clean = window.location.pathname.replace(/index\.html$/, '') + window.location.search + window.location.hash;
     history.replaceState(null, '', clean);
   }
+
+
+  // Volunteer form -> opens pre-filled email to sales.tdks@gmail.com
+  const volunteerForm = document.getElementById('volunteerForm');
+  if (volunteerForm) {
+    volunteerForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const form = e.currentTarget;
+      const name = (form.elements.namedItem('name').value || '').trim();
+      const email = (form.elements.namedItem('email').value || '').trim();
+      const phone = (form.elements.namedItem('phone').value || '').trim();
+      const city = (form.elements.namedItem('city').value || '').trim();
+      const availability = form.elements.namedItem('availability').value || '';
+      const preferred = form.elements.namedItem('preferred_contact').value || '';
+      const notes = (form.elements.namedItem('message').value || '').trim();
+
+      const interests = Array.from(form.querySelectorAll('input[name="interests"]:checked')).map(i => i.value);
+      if (interests.length === 0) {
+        alert('Please select at least one area you’d like to help with.');
+        return;
+      }
+
+      const subject = `Volunteer Interest — ${name || 'TDKS'}`;
+      const bodyLines = [
+        'Volunteer Interest (TDKS)',
+        '------------------------',
+        `Name: ${name}`,
+        `Email: ${email}`,
+        phone ? `Phone: ${phone}` : 'Phone: (not provided)',
+        city ? `City: ${city}` : 'City: (not provided)',
+        `Areas of interest: ${interests.join(', ')}`,
+        `Availability: ${availability}`,
+        `Preferred contact: ${preferred}`,
+        '',
+        'Notes:',
+        notes || '(none)',
+        '',
+        'Sent from tdks.org website'
+      ];
+
+      const mailto = 'mailto:sales.tdks@gmail.com'
+        + '?subject=' + encodeURIComponent(subject)
+        + '&body=' + encodeURIComponent(bodyLines.join('\n'));
+
+      window.location.target = '_blank';
+      window.location.href = mailto;
+    });
+  }
+
 
   // set year
   const y = document.getElementById('year');

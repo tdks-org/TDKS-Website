@@ -22,8 +22,8 @@
         <a href="./" class="nav-link">Home</a>
         <a href="about.html" class="nav-link">About</a>
         <a href="events.html" class="nav-link">Events</a>
+        <a href="donate.html" class="nav-link">Donate</a>
         <a href="contact.html" class="nav-link">Contact</a>
-        <a href="contact.html#donate" class="btn-donate">Donate</a>
       </nav>
 
       <button class="mobile-toggle" aria-label="Toggle menu">☰</button>
@@ -54,10 +54,9 @@
     <section class="section">
       <div class="container">
         <div class="event-grid">
-          <article class="event-card">
+          <article class="event-card" id="sankranthi-sambrhama-2026">
             <div class="event-media">
-              <img src="assets/event-sankranthi-2026.jpg" alt="Sankranthi Sambrhama 2026">
-              <div class="photo-hint">assets/event-sankranthi-2026.jpg</div>
+              <img src="assets/event/event-sankranthi-2026.jpg" alt="Sankranthi Sambrhama 2026">
             </div>
 
             <div class="event-body">
@@ -79,14 +78,48 @@
               </div>
 
               <div class="cta-row">
-                <a class="btn-primary" href="contact.html">RSVP / Contact</a>
+                <a class="btn-primary" target="_blank" href="https://www.zeffy.com/en-US/ticketing/tdks--2026">RSVP</a>
                 <a class="btn-secondary" href="contact.html#volunteer">Volunteer</a>
+              
+                <button class="btn-secondary btn-share" type="button" data-share="#sankranthi-sambrhama-2026">Share</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="event-card" id="madhu-gowda-financial-information-2026">
+            <div class="event-media">
+              <img src="assets/event/event-madhu-gowda-2026.jpg" alt="Madhu Gowda Financial Information 2026">
+            </div>
+
+            <div class="event-body">
+              <div class="event-meta">
+                <span class="event-date">Jan 25, 2026</span>
+                <span class="event-tag">Educational</span>
+              </div>
+
+              <h3>Madhu Gowda Financial Information 2026</h3>
+              <p>
+                Free to attend seminar on personal finance, investments, and retirement planning
+                by Mr. Madhu Gowda, CFP®. Complimentary refreshments will be served.
+              </p>
+
+              <div class="event-details">
+                <div><strong>Venue:</strong> Cielo Club House</div>
+                <div><strong>Address:</strong> 5365 Ramona Valley Ln, Antioch, CA 94531</div>
+                <div><strong>Time:</strong> 4:00 PM - 5:30 PM</div>
+              </div>
+
+              <div class="cta-row">
+                <a class="btn-primary" target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSfa2ZhEs9BxQa9ilC3zk84DGZ32H7jjeuU8MCy7vGHhyNzCjQ/viewform?pli=1">RSVP</a>
+                <a class="btn-secondary" href="contact.html#volunteer">Volunteer</a>
+              
+                <button class="btn-secondary btn-share" type="button" data-share="#madhu-gowda-financial-information-2026">Share</button>
               </div>
             </div>
           </article>
 
           <!-- Template (copy/paste for new events)
-          <article class="event-card">
+          <article class="event-card" id="event-title">
             <div class="event-media">
               <img src="assets/event-your-event.jpg" alt="Event name">
               <div class="photo-hint">assets/event-your-event.jpg</div>
@@ -105,6 +138,8 @@
               </div>
               <div class="cta-row">
                 <a class="btn-primary" href="contact.html">RSVP / Contact</a>
+              
+                <button class="btn-secondary btn-share" type="button" data-share="#event-title">Share</button>
               </div>
             </div>
           </article>
@@ -127,7 +162,7 @@
       <div class="footer-col">
         <h4>Contact</h4>
         <address>
-          5349 High Vly Ln<br>
+          5349 High Valley Lane<br>
           Antioch, CA 94531<br>
           Phone: +1 (917) 640-4714<br>
           <a href="mailto:sales.tdks@gmail.com">sales.tdks@gmail.com</a>
@@ -161,6 +196,25 @@
       const clean = window.location.pathname.replace(/index\.html$/, '') + window.location.search + window.location.hash;
       history.replaceState(null, '', clean);
     }
+
+    
+    // Share buttons: copy a direct event link (events.html#event-id)
+    function copyEventLink(hash){
+      const url = window.location.origin + window.location.pathname + hash;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(() => {
+          // small UX hint (non-blocking)
+          const b = document.querySelector('.btn-share[data-share="'+hash+'"]');
+          if (b){ const old=b.textContent; b.textContent='Copied!'; setTimeout(()=>b.textContent=old,1200); }
+        }).catch(()=>{ window.location.hash = hash; });
+      } else {
+        window.location.hash = hash;
+      }
+    }
+    document.querySelectorAll('.btn-share').forEach(btn=>{
+      btn.addEventListener('click', ()=> copyEventLink(btn.getAttribute('data-share')));
+    });
+
 
     // set year
     const y = document.getElementById('year');
