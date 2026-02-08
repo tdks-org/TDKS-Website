@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Past Events - Tri Delta Kannada Sangha (TDKS)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <meta name="description" content="TDKS past events and community highlights">
+</head>
+<body>
+  <div class="top-strip" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="./">
+        <img src="assets/logo.png" alt="TDKS logo" class="logo">
+        <span class="brand-text">ಟ್ರೈ ಡೆಲ್ಟಾ ಕನ್ನಡ ಸಂಘ | Tridelta Kannada Sangha</span>
+      </a>
+
+      <nav class="nav">
+        <a href="./" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="events.html" class="nav-link">Events</a>
+        <a href="donate.html" class="nav-link">Donate</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <button class="mobile-toggle" aria-label="Toggle menu">☰</button>
+    </div>
+  </header>
+
+  <main class="content">
+    <section class="section">
+      <div class="container">
+        <div class="home-block">
+          <h2>Past Events</h2>
+          <p class="muted">Memories from recent celebrations, community gatherings, and outreach programs.</p>
+        </div>
+
+        <div class="event-grid">
+          <article class="event-card" id="sankranthi-sambrhama-2026">
+            <div class="event-media">
+              <img src="assets/event/event-sankranthi-2026.jpg" alt="Sankranthi Sambrhama 2026">
+            </div>
+
+            <div class="event-body">
+              <div class="event-meta">
+                <span class="event-date">Jan 25, 2026</span>
+                <span class="event-tag">Festival</span>
+              </div>
+
+              <h3>Sankranthi Sambrhama - 2026</h3>
+              <p>
+                Come celebrate the festive spirit of Sankranti with rich traditions, cultural activities,
+                fun games, and Karnataka-style cuisine treats!
+              </p>
+
+              <div class="event-details">
+                <div><strong>Venue:</strong> Cielo Club House</div>
+                <div><strong>Address:</strong> 5365 Ramona Valley Ln, Antioch, CA 94531</div>
+                <div><strong>Time:</strong> 11:00 AM - 4:00 PM</div>
+              </div>
+
+              <div class="cta-row">
+                <a class="btn-secondary" target="_blank" rel="noopener noreferrer" href="https://photos.app.goo.gl/4wBbUqUsqHQEBm6u6">Photos</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="event-card" id="madhu-gowda-financial-information-2026">
+            <div class="event-media">
+              <img src="assets/event/event-madhu-gowda-2026.jpg" alt="Madhu Gowda Financial Information 2026">
+            </div>
+
+            <div class="event-body">
+              <div class="event-meta">
+                <span class="event-date">Jan 25, 2026</span>
+                <span class="event-tag">Educational</span>
+              </div>
+
+              <h3>Madhu Gowda Financial Information 2026</h3>
+              <p>
+                Free to attend seminar on personal finance, investments, and retirement planning
+                by Mr. Madhu Gowda, CFP®. Complimentary refreshments will be served.
+              </p>
+
+              <div class="event-details">
+                <div><strong>Venue:</strong> Cielo Club House</div>
+                <div><strong>Address:</strong> 5365 Ramona Valley Ln, Antioch, CA 94531</div>
+                <div><strong>Time:</strong> 4:00 PM - 5:30 PM</div>
+              </div>
+
+              <div class="cta-row">
+
+              </div>
+            </div>
+          </article>
+
+          <!-- Add more past events here -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <address>
+          5349 High Valley Lane<br>
+          Antioch, CA 94531<br>
+          Phone: +1 (917) 640-4714<br>
+          <a href="mailto:sales.tdks@gmail.com">sales.tdks@gmail.com</a><br>
+          <a href="https://www.instagram.com/tridelatsks/" target="_blank" rel="noopener noreferrer">Instagram</a><br>
+          <a href="https://www.facebook.com/groups/trideltaks/" target="_blank" rel="noopener noreferrer">Facebook</a>
+        </address>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul class="quick-links">
+          <li><a href="about.html">About</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <div class="copyright">
+        © <span id="year"></span> TDKS — All rights reserved
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('.mobile-toggle');
+    if (toggle) toggle.addEventListener('click', () => document.querySelector('.nav').classList.toggle('open'));
+
+    if (window.location.pathname.endsWith('index.html')) {
+      const clean = window.location.pathname.replace(/index\.html$/, '') + window.location.search + window.location.hash;
+      history.replaceState(null, '', clean);
+    }
+
+    const year = document.getElementById('year');
+    if (year) year.textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

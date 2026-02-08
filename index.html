@@ -55,13 +55,44 @@
 
       <!-- Slide 4 -->
       <div class="slide" role="group" aria-roledescription="slide" aria-label="4">
-        <img src="assets/slider/slider-4.jpg" alt="Cultural performance" class="slide-img" />
+        <img src="assets/slider/slider-4.jpg" alt="Community event" class="slide-img" />
       </div>
 
       <!-- Slide 5 -->
       <div class="slide" role="group" aria-roledescription="slide" aria-label="5">
         <img src="assets/slider/slider-5.jpg" alt="Community event" class="slide-img" />
       </div>
+
+      <!-- Slide 6 -->
+      <div class="slide" role="group" aria-roledescription="slide" aria-label="6">
+        <img src="assets/slider/slider-6.jpg" alt="Community event" class="slide-img" />
+      </div>
+
+      <!-- Slide 7 -->
+      <div class="slide" role="group" aria-roledescription="slide" aria-label="7">
+        <img src="assets/slider/slider-7.jpg" alt="Community event" class="slide-img" />
+      </div>
+
+      <!-- Slide 8 -->
+      <div class="slide" role="group" aria-roledescription="slide" aria-label="8">
+        <img src="assets/slider/slider-8.jpg" alt="Community event" class="slide-img" />
+      </div>
+
+      <!-- Slide 9 -->
+      <div class="slide" role="group" aria-roledescription="slide" aria-label="9">
+        <img src="assets/slider/slider-9.jpg" alt="Community event" class="slide-img" />
+      </div>
+
+      <!-- Slide 10 -->
+      <div class="slide" role="group" aria-roledescription="slide" aria-label="10">
+        <img src="assets/slider/slider-10.jpg" alt="Community event" class="slide-img" />
+      </div>
+
+      <!-- Slide 11 -->
+      <div class="slide" role="group" aria-roledescription="slide" aria-label="11">
+        <img src="assets/slider/slider-11.jpg" alt="Community event" class="slide-img" />
+      </div>
+
     </div>
 
     <button class="slider-prev" aria-label="Previous slide">‹</button>
@@ -81,12 +112,6 @@
 
     <div class="three-cards">
       <div class="home-block">
-        <h3>Events</h3>
-        <p>Monthly activities, cultural programs and annual festival.</p>
-        <a href="events.html">View events →</a>
-      </div>
-
-      <div class="home-block">
         <h3>Volunteer</h3>
         <p>Help organize, teach or join our outreach initiatives.</p>
         <a href="contact.html#volunteer">Sign up →</a>
@@ -96,6 +121,35 @@
         <h3>Donate</h3>
         <p>Your donations help run community programs and support those in need.</p>
         <a href="contact.html#donation">How to donate →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Upcoming Events slider -->
+  <section class="upcoming-events" aria-label="Upcoming Events">
+    <div class="container">
+      <h2 class="section-title">Upcoming Events</h2>
+
+      <div class="slider event-slider" id="eventSlider" data-autoplay="true" data-interval="9000" tabindex="0">
+        <div class="slides">
+          <div class="slide" role="group" aria-roledescription="slide" aria-label="1">
+            <a class="event-slide-link" href="events.html#event-ugadi-2026">
+              <img src="assets/event/event-bayarea-mela-2026-main.jpg" alt="Bay Area Kannadigara Mela 2026" class="slide-img event-slide-img" />
+              <span class="event-slide-caption">Bay Area Annual Kannadigara Mela - 2026</span>
+            </a>
+          </div>
+
+          <div class="slide" role="group" aria-roledescription="slide" aria-label="1">
+            <a class="event-slide-link" href="events.html#event-camping-2026">
+              <img src="assets/event/event-camping-main.jpg" alt="TDKS Annual Camping 2026" class="slide-img event-slide-img" />
+              <span class="event-slide-caption">TDKS Annual Camping - 2026</span>
+            </a>
+          </div>
+        </div>
+
+        <button class="slider-prev" aria-label="Previous event">‹</button>
+        <button class="slider-next" aria-label="Next event">›</button>
+        <div class="slider-dots" role="tablist" aria-label="Event dots"></div>
       </div>
     </div>
   </section>
@@ -162,7 +216,9 @@
         5349 High Valley Lane<br>
         Antioch, CA 94531<br>
         Phone: +1 (917) 640-4714<br>
-        <a href="mailto:sales.tdks@gmail.com">sales.tdks@gmail.com</a>
+        <a href="mailto:sales.tdks@gmail.com">sales.tdks@gmail.com</a><br>
+        <a href="https://www.instagram.com/tridelatsks/" target="_blank" rel="noopener noreferrer">Instagram</a><br>
+        <a href="https://www.facebook.com/groups/trideltaks/" target="_blank" rel="noopener noreferrer">Facebook</a>
       </address>
     </div>
 
@@ -262,6 +318,93 @@
     slider.addEventListener('mouseenter', stop);
     slider.addEventListener('mouseleave', start);
     window.addEventListener('resize', updatePosition);
+  })();
+
+  // Upcoming events slider: swiper-style multi-card carousel
+  (function() {
+    const slider = document.getElementById('eventSlider');
+    if (!slider) return;
+
+    const slidesWrap = slider.querySelector('.slides');
+    const slides = Array.from(slidesWrap.querySelectorAll('.slide'));
+    const prevBtn = slider.querySelector('.slider-prev');
+    const nextBtn = slider.querySelector('.slider-next');
+    const dotsWrap = slider.querySelector('.slider-dots');
+    const autoplay = slider.dataset.autoplay === 'true';
+
+    let interval = parseInt(slider.dataset.interval || '7000', 10);
+    if (isNaN(interval) || interval < 4000) interval = 4000;
+
+    let current = 0;
+    let timer = null;
+
+    function getSlidesPerView() {
+      const v = getComputedStyle(slider).getPropertyValue('--slides-per-view').trim();
+      const n = parseFloat(v);
+      return Number.isFinite(n) && n > 0 ? n : 1;
+    }
+
+    function updatePosition() {
+      const spv = getSlidesPerView();
+      const maxStart = Math.max(0, slides.length - spv);
+      if (current > maxStart) current = 0;
+      if (current < 0) current = maxStart;
+
+      const step = 100 / spv;
+      slidesWrap.style.transform = 'translateX(' + (-current * step) + '%)';
+      Array.from(dotsWrap.children).forEach((d,i)=> d.classList.toggle('active', i===current));
+    }
+
+    function goTo(index) {
+      current = index;
+      updatePosition();
+    }
+    function next() { goTo(current + 1); }
+    function prev() { goTo(current - 1); }
+
+    function buildDots() {
+      dotsWrap.innerHTML = '';
+      const spv = getSlidesPerView();
+      const maxStart = Math.max(0, Math.ceil(slides.length - spv));
+      const count = maxStart + 1;
+      for (let i = 0; i < count; i++) {
+        const b = document.createElement('button');
+        b.className = i===0 ? 'dot active' : 'dot';
+        b.type = 'button';
+        b.setAttribute('aria-label', 'Go to event set ' + (i+1));
+        b.addEventListener('click', () => { goTo(i); restart(); });
+        dotsWrap.appendChild(b);
+      }
+    }
+
+    function start() { if (autoplay) timer = setInterval(next, interval); }
+    function stop() { if (timer) { clearInterval(timer); timer = null; } }
+    function restart() { stop(); start(); }
+
+    nextBtn && nextBtn.addEventListener('click', () => { next(); restart(); });
+    prevBtn && prevBtn.addEventListener('click', () => { prev(); restart(); });
+
+    slider.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') { next(); restart(); }
+      if (e.key === 'ArrowLeft') { prev(); restart(); }
+    });
+
+    let touchStartX = null;
+    slidesWrap.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; stop(); }, {passive:true});
+    slidesWrap.addEventListener('touchend', (e) => {
+      if (touchStartX === null) return;
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(dx) > 40) { dx < 0 ? next() : prev(); }
+      touchStartX = null;
+      restart();
+    }, {passive:true});
+
+    buildDots();
+    updatePosition();
+    start();
+    slider.addEventListener('mouseenter', stop);
+    slider.addEventListener('mouseleave', start);
+    window.addEventListener('resize', () => { buildDots(); updatePosition(); });
   })();
 
   // Sponsors slider: swiper-style multi-logo carousel (multiple slides visible)
