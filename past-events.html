@@ -14,14 +14,14 @@
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="./">
-        <img src="assets/logo.png" alt="TDKS logo" class="logo">
+        <img src="assets/logo.png" alt="TDKS logo" class="logo" decoding="async">
         <span class="brand-text">ಟ್ರೈ ಡೆಲ್ಟಾ ಕನ್ನಡ ಸಂಘ | Tridelta Kannada Sangha</span>
       </a>
 
       <nav class="nav">
         <a href="./" class="nav-link">Home</a>
         <a href="about.html" class="nav-link">About</a>
-        <a href="events.html" class="nav-link">Events</a>
+        <a href="events.html" class="nav-link" aria-current="page">Events</a>
         <a href="donate.html" class="nav-link">Donate</a>
         <a href="contact.html" class="nav-link">Contact</a>
       </nav>
@@ -39,9 +39,37 @@
         </div>
 
         <div class="event-grid">
+          <article class="event-card" id="event-bayarea-mela-2026">
+            <div class="event-media">
+              <img src="assets/event/event-bayarea-mela-2026.jpg" alt="Bay Area Kannadigara Mela 2026" loading="lazy" decoding="async">
+            </div>
+
+            <div class="event-body">
+              <div class="event-meta">
+                <span class="event-date">April 25, 2026</span>
+                <span class="event-tag">Community Gathering</span>
+              </div>
+
+              <h3>BAY AREA ANNUAL KANNADIGARA MELA - 2026</h3>
+              <p>
+                The Kannada communities of California came together for a vibrant, memorable celebration.
+              </p>
+
+              <div class="event-details">
+                <div><strong>Venue:</strong> Alameda Fairground, Pleasanton</div>
+                <div><strong>Time:</strong> 12:00 PM - 7:00 PM</div>
+              </div>
+
+              <div class="event-details">
+                <div><strong>Facebook:</strong> <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02VWAsNT3GrxApU79ao9XCGqrqYcBqx7mTmehFV1M4uhntMMKapunzL9ZAyE8wG5dJl&id=61587571655194" target="_blank" rel="noopener noreferrer">View post</a></div>
+                <div><strong>Instagram:</strong> <a href="https://www.instagram.com/p/DUexf-GEcqg/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer">View post</a></div>
+              </div>
+            </div>
+          </article>
+
           <article class="event-card" id="sankranthi-sambrhama-2026">
             <div class="event-media">
-              <img src="assets/event/event-sankranthi-2026.jpg" alt="Sankranthi Sambrhama 2026">
+              <img src="assets/event/event-sankranthi-2026.jpg" alt="Sankranthi Sambrhama 2026" loading="lazy" decoding="async">
             </div>
 
             <div class="event-body">
@@ -70,7 +98,7 @@
 
           <article class="event-card" id="madhu-gowda-financial-information-2026">
             <div class="event-media">
-              <img src="assets/event/event-madhu-gowda-2026.jpg" alt="Madhu Gowda Financial Information 2026">
+              <img src="assets/event/event-madhu-gowda-2026.jpg" alt="Madhu Gowda Financial Information 2026" loading="lazy" decoding="async">
             </div>
 
             <div class="event-body">
@@ -134,17 +162,6 @@
     </div>
   </footer>
 
-  <script>
-    const toggle = document.querySelector('.mobile-toggle');
-    if (toggle) toggle.addEventListener('click', () => document.querySelector('.nav').classList.toggle('open'));
-
-    if (window.location.pathname.endsWith('index.html')) {
-      const clean = window.location.pathname.replace(/index\.html$/, '') + window.location.search + window.location.hash;
-      history.replaceState(null, '', clean);
-    }
-
-    const year = document.getElementById('year');
-    if (year) year.textContent = new Date().getFullYear();
-  </script>
+  <script src="main.js"></script>
 </body>
 </html>
