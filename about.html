@@ -6,7 +6,7 @@
   <title>About - Tri Delta Kannada Sangha (TDKS)</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <meta name="description" content="Tri Delta Kannada Sangha (TDKS) - community for language, culture and service">
+  <meta name="description" content="Learn about Tri Delta Kannada Sangha (TDKS), our mission, programs, and board members serving the Bay Area Kannada community.">
 </head>
 <body>
   <div class="top-strip" aria-hidden="true"></div>
@@ -14,13 +14,13 @@
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="./">
-        <img src="assets/logo.png" alt="TDKS logo" class="logo">
+        <img src="assets/logo.png" alt="TDKS logo" class="logo" decoding="async">
         <span class="brand-text">ಟ್ರೈ ಡೆಲ್ಟಾ ಕನ್ನಡ ಸಂಘ | Tridelta Kannada Sangha</span>
       </a>
 
       <nav class="nav">
         <a href="./" class="nav-link">Home</a>
-        <a href="about.html" class="nav-link">About</a>
+        <a href="about.html" class="nav-link" aria-current="page">About</a>
         <a href="events.html" class="nav-link">Events</a>
         <a href="donate.html" class="nav-link">Donate</a>
         <a href="contact.html" class="nav-link">Contact</a>
@@ -86,7 +86,7 @@
         <div class="people-grid">
           <article class="person-card">
             <div class="person-photo">
-              <img src="assets/bod/president.jpg" alt="President">
+              <img src="assets/bod/president.jpg" alt="President" loading="lazy" decoding="async">
             </div>
             <div class="person-body">
               <h3>Shri. Shivakumar Gurulingappa</h3>
@@ -96,7 +96,7 @@
 
           <article class="person-card">
             <div class="person-photo">
-              <img src="assets/bod/secretary.jpg" alt="Secretary">
+              <img src="assets/bod/secretary.jpg" alt="Secretary" loading="lazy" decoding="async">
             </div>
             <div class="person-body">
               <h3>Smt. Sowmya Mukunda</h3>
@@ -106,7 +106,7 @@
 
           <article class="person-card">
             <div class="person-photo">
-              <img src="assets/bod/treasurer.jpg" alt="Treasurer">
+              <img src="assets/bod/treasurer.jpg" alt="Treasurer" loading="lazy" decoding="async">
             </div>
             <div class="person-body">
               <h3>Shri. Phaniraju Komarlu</h3>
@@ -115,7 +115,7 @@
           </article>
           <article class="person-card">
             <div class="person-photo">
-              <img src="assets/bod/vice-president.jpg" alt="Vice President">
+              <img src="assets/bod/vice-president.jpg" alt="Vice President" loading="lazy" decoding="async">
             </div>
             <div class="person-body">
               <h3>Smt. Anuradha Begari</h3>
@@ -125,7 +125,7 @@
 
           <article class="person-card">
             <div class="person-photo">
-              <img src="assets/bod/deputy-secretary.jpg" alt="Deputy Secretary">
+              <img src="assets/bod/deputy-secretary.jpg" alt="Deputy Secretary" loading="lazy" decoding="async">
             </div>
             <div class="person-body">
               <h3>Shri. Ranjan Raju</h3>
@@ -135,7 +135,7 @@
 
           <article class="person-card">
             <div class="person-photo">
-              <img src="assets/bod/deputy-treasurer.jpg" alt="Deputy Treasurer">
+              <img src="assets/bod/deputy-treasurer.jpg" alt="Deputy Treasurer" loading="lazy" decoding="async">
             </div>
             <div class="person-body">
               <h3>Shri. Prakash Nanda Kumar</h3>
@@ -179,20 +179,6 @@
     </div>
   </footer>
 
-  <script>
-    // mobile menu toggle
-    const toggle = document.querySelector('.mobile-toggle');
-    if (toggle) toggle.addEventListener('click', () => document.querySelector('.nav').classList.toggle('open'));
-
-    // hide index.html if present
-    if (window.location.pathname.endsWith('index.html')) {
-      const clean = window.location.pathname.replace(/index\.html$/, '') + window.location.search + window.location.hash;
-      history.replaceState(null, '', clean);
-    }
-
-    // set year
-    const y = document.getElementById('year');
-    if (y) y.textContent = new Date().getFullYear();
-  </script>
+  <script src="main.js"></script>
 </body>
 </html>

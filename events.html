@@ -14,14 +14,14 @@
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="./">
-        <img src="assets/logo.png" alt="TDKS logo" class="logo">
+        <img src="assets/logo.png" alt="TDKS logo" class="logo" decoding="async">
         <span class="brand-text">ಟ್ರೈ ಡೆಲ್ಟಾ ಕನ್ನಡ ಸಂಘ | Tridelta Kannada Sangha</span>
       </a>
 
       <nav class="nav">
         <a href="./" class="nav-link">Home</a>
         <a href="about.html" class="nav-link">About</a>
-        <a href="events.html" class="nav-link">Events</a>
+        <a href="events.html" class="nav-link" aria-current="page">Events</a>
         <a href="donate.html" class="nav-link">Donate</a>
         <a href="contact.html" class="nav-link">Contact</a>
       </nav>
@@ -58,37 +58,23 @@
         </div>
 
         <div class="event-grid">
-          <article class="event-card" id="event-ugadi-2026">
+          <article class="event-card" id="event-ahara-mela-2026">
             <div class="event-media">
-              <img src="assets/event/event-bayarea-mela-2026.jpg" alt="Bay Area Kannadigara Mela 2026">
+              <img src="assets/event/event-ahara-mela-2026.png" alt="Ahara Mela 2026" loading="lazy" decoding="async">
             </div>
 
             <div class="event-body">
               <div class="event-meta">
-                <span class="event-date">April 25, 2026</span>
-                <span class="event-tag">Community Gathering</span>
+                <span class="event-date">2026</span>
+                <span class="event-tag">Food Festival</span>
               </div>
 
-              <h3>BAY AREA ANNUAL KANNADIGARA MELA - 2026</h3>
-              <p>
-                The Kannada communities of California are coming together like never before, and you’re invited to be part of this vibrant, history making moment.
-              </p>
-
-              <div class="event-details">
-                <div><strong>Venue:</strong> Alameda Fairground, Pleasanton</div>
-                <div><strong>Time:</strong> 12:00 PM - 7:00 PM</div>
-              </div>
-
-              <div class="event-details">
-                <div><strong>Facebook:</strong> <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid02VWAsNT3GrxApU79ao9XCGqrqYcBqx7mTmehFV1M4uhntMMKapunzL9ZAyE8wG5dJl&id=61587571655194" target="_blank" rel="noopener noreferrer">View post</a></div>
-                <div><strong>Instagram:</strong> <a href="https://www.instagram.com/p/DUexf-GEcqg/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer">View post</a></div>
-              </div>
+              <h3>AHARA MELA - 2026</h3>
+              <p>Join us for a delicious community food festival celebrating flavors, culture, and togetherness.</p>
 
               <div class="cta-row">
-                <!--a class="btn-primary" target="_blank" href="https://www.zeffy.com/en-US/ticketing/tdks--2026">RSVP</a-->
                 <a class="btn-secondary" href="contact.html#volunteer">Volunteer</a>
-              
-                <button class="btn-secondary btn-share" type="button" data-share="#sankranthi-sambrhama-2026">Share</button>
+                <button class="btn-secondary btn-share" type="button" data-share="#event-ahara-mela-2026">Share</button>
               </div>
             </div>
           </article>
@@ -195,18 +181,8 @@
     </div>
   </footer>
 
+  <script src="main.js"></script>
   <script>
-    // mobile menu toggle
-    const toggle = document.querySelector('.mobile-toggle');
-    if (toggle) toggle.addEventListener('click', () => document.querySelector('.nav').classList.toggle('open'));
-
-    // hide index.html if present
-    if (window.location.pathname.endsWith('index.html')) {
-      const clean = window.location.pathname.replace(/index\.html$/, '') + window.location.search + window.location.hash;
-      history.replaceState(null, '', clean);
-    }
-
-    
     // Share buttons: copy a direct event link (events.html#event-id)
     function copyEventLink(hash){
       const url = window.location.origin + window.location.pathname + hash;
@@ -223,11 +199,6 @@
     document.querySelectorAll('.btn-share').forEach(btn=>{
       btn.addEventListener('click', ()=> copyEventLink(btn.getAttribute('data-share')));
     });
-
-
-    // set year
-    const y = document.getElementById('year');
-    if (y) y.textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
