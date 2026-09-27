@@ -224,6 +224,11 @@ main{background:transparent}
 .upcoming-events .slides{height:auto}
 .event-slider{ --slides-per-view: 2; --event-gap: 16px; }
 .event-slider .slides{ gap:var(--event-gap); padding:0; }
+/* Single upcoming event: center it and hide the carousel controls */
+.event-slider:has(.slide:only-child) .slides{ justify-content:center; }
+.event-slider:has(.slide:only-child) .slider-prev,
+.event-slider:has(.slide:only-child) .slider-next,
+.event-slider:has(.slide:only-child) .slider-dots{ display:none; }
 .event-slider .slide{
   flex: 0 0 calc((100% - (var(--event-gap) * (var(--slides-per-view) - 1))) / var(--slides-per-view));
   padding:0;
