@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Tri Delta Kannada Sangha (TDKS) | Kannada Community in Bay Area</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=20261010c">
   <meta name="description" content="Tri Delta Kannada Sangha (TDKS) — Community for language, culture and service">
 </head>
 <body class="home">
@@ -16,12 +16,21 @@
     <div class="container header-inner">
       <a class="brand" href="./" aria-label="Tri Delta Kannada Sangha home">
         <img src="assets/logo.png" alt="TDKS logo" class="logo" decoding="async">
-        <span class="brand-text">ಟ್ರೈ ಡೆಲ್ಟಾ ಕನ್ನಡ ಸಂಘ | Tridelta Kannada Sangha</span>
+        <span class="brand-copy">
+          <span class="brand-text">ಟ್ರೈ ಡೆಲ್ಟಾ ಕನ್ನಡ ಸಂಘ | Tridelta Kannada Sangha</span>
+          <span class="brand-tagline">A 501(c)(3) Non-Profit Organization (EIN: 39-4010798)</span>
+        </span>
       </a>
 
       <nav class="nav" aria-label="Primary navigation">
         <a href="./" class="nav-link" aria-current="page">Home</a>
-        <a href="about.html" class="nav-link">About</a>
+        <div class="nav-dropdown">
+          <a href="about.html" class="nav-link" aria-haspopup="true">About <span class="nav-caret" aria-hidden="true">▾</span></a>
+          <div class="nav-submenu">
+            <a href="about.html" class="nav-sublink">About TDKS</a>
+            <a href="bylaws.html" class="nav-sublink">Bylaws</a>
+          </div>
+        </div>
         <a href="events.html" class="nav-link">Events</a>
         <a href="namma-kannada.html" class="nav-link">Namma Kannada</a>
         <a href="donate.html" class="nav-link">Donate</a>
@@ -142,7 +151,83 @@
       <p>Tri Delta Kannada Sangha (ಟ್ರೈ ಡೆಲ್ಟಾ ಕನ್ನಡ ಸಂಘ) is a nonprofit community organization founded to unite Kannadigas and promote the beauty of our language, art, and culture.</p>
       <p><a href="about.html">Read more →</a></p>
     </article>
+  </section>
 
+  <!-- Announcements: cards side by side, fixed height, expandable -->
+  <section class="container announcements" aria-labelledby="announcements-title">
+    <h2 class="section-title" id="announcements-title">Announcements</h2>
+    <div class="announcement-grid">
+        <article class="announcement-card" id="deadlines-2026-10-10">
+          <div class="announcement-body">
+            <div class="announcement-head">
+              <span class="announcement-badge">⏰ Last date: Today, 10/10/2026</span>
+              <h3>Dear TDKS Family 🇮🇳❤️</h3>
+            </div>
+
+            <div class="announcement-item">
+              <h4>🔴 TDKS BOD – Open Position Nominations</h4>
+              <p>Interested in serving on the TDKS Board? We encourage you to step forward and be part of shaping the future of TDKS.</p>
+              <p>📧 Send your nomination to: <a href="mailto:Secretary@trideltaks.org">Secretary@trideltaks.org</a></p>
+            </div>
+
+            <div class="announcement-item">
+              <h4>🟡 Kannada Rajyothsava 2026 – Cultural Activities Registration 🎭🎶</h4>
+              <p>If you or your kids would like to participate in the cultural programs, please register before the deadline!</p>
+              <div class="cta-row">
+                <a class="btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSc7d2OVQuavASD7MfQJSFMnzlVqvWtLwjf--M_6IeNAsf1NGA/viewform" target="_blank" rel="noopener noreferrer">Sign up for cultural programs</a>
+              </div>
+            </div>
+
+            <p class="announcement-sign">– <strong>TDKS BOD</strong></p>
+          </div>
+          <button class="announcement-toggle" type="button" aria-expanded="false">Read more</button>
+        </article>
+
+        <article class="announcement-card" id="gbm-2026">
+          <div class="announcement-body">
+            <div class="announcement-head">
+              <span class="announcement-badge">📢 Official Announcement</span>
+              <h3>General Body Meeting</h3>
+              <p class="announcement-kn">TDKS ಮಹಾಸಭೆ (General Body Meeting) ಆಮಂತ್ರಣ</p>
+            </div>
+
+            <p>Namaskara TDKS Members 🙏 We request your presence at the upcoming General Body Meeting (GBM) of the Tri Delta Kannada Sangha. Your participation and input are vital for the growth of our community.</p>
+            <p class="announcement-kn">ಆತ್ಮೀಯ TDKS ಸದಸ್ಯರೇ 🌸 ಟ್ರೈ ಡೆಲ್ಟಾ ಕನ್ನಡ ಸಂಘದ ಮಹಾಸಭೆಗೆ ನಿಮ್ಮೆಲ್ಲರಿಗೂ ಆದರದ ಸುಸ್ವಾಗತ. ನಮ್ಮ ಸಂಘದ ಮುಂದಿನ ಬೆಳವಣಿಗೆ ಮತ್ತು ಯೋಜನೆಗಳ ಕುರಿತು ಚರ್ಚಿಸಲು ನಿಮ್ಮ ಉಪಸ್ಥಿತಿ ಅತ್ಯಗತ್ಯ.</p>
+
+            <dl class="announcement-details">
+              <div>
+                <dt>📅 Date · ದಿನಾಂಕ</dt>
+                <dd>Sunday, October 18, 2026<span>ಭಾನುವಾರ, ಅಕ್ಟೋಬರ್ 18, 2026</span></dd>
+              </div>
+              <div>
+                <dt>⏰ Time · ಸಮಯ</dt>
+                <dd>10:00 AM Pacific Time<span>ಬೆಳಿಗ್ಗೆ 10:00 ಗಂಟೆಗೆ</span></dd>
+              </div>
+              <div>
+                <dt>📍 Venue · ಸ್ಥಳ</dt>
+                <dd><a href="https://maps.google.com/?q=5349+High+Valley+Ln,+Antioch,+CA+94531" target="_blank" rel="noopener noreferrer">5349 High Valley Ln, Antioch, CA 94531</a></dd>
+              </div>
+            </dl>
+
+            <h4>📝 Agenda · ಚರ್ಚೆಯ ವಿಷಯಗಳು</h4>
+            <ul class="announcement-agenda">
+              <li>Previous Event Review <span>ಕಳೆದ ಕಾರ್ಯಕ್ರಮಗಳ ಪರಾಮರ್ಶೆ</span></li>
+              <li>Financial Update <span>ಆರ್ಥಿಕ ವರದಿ</span></li>
+              <li>Upcoming Events &amp; Planning <span>ಮುಂದಿನ ಕಾರ್ಯಕ್ರಮಗಳ ಯೋಜನೆ</span></li>
+              <li>New BOD selection/election for 2027-28 <span>2027-28ನೇ ಸಾಲಿನ ಹೊಸ ಆಡಳಿತ ಮಂಡಳಿಯ ಆಯ್ಕೆ/ಚುನಾವಣೆ</span></li>
+            </ul>
+
+            <p class="announcement-note">☕ Light refreshments will be served. Please mark your calendars and make every effort to attend. Let’s work together to make TDKS stronger! 💪❤️</p>
+            <p class="announcement-rsvp"><strong>RSVP by October 12:</strong> please reply 👍 ‘YES’ in the TDKS members group to help us make logistical arrangements.</p>
+
+            <p class="announcement-sign">Dhanyavadagalu,<br><strong>TDKS Executive Committee</strong> 🤝</p>
+          </div>
+          <button class="announcement-toggle" type="button" aria-expanded="false">Read more</button>
+        </article>
+    </div>
+  </section>
+
+  <section class="container home-links" aria-label="Get involved">
     <div class="three-cards">
       <div class="home-block">
         <h3>Volunteer</h3>
@@ -173,7 +258,7 @@
         <div class="slides">
           <div class="slide" role="group" aria-roledescription="slide" aria-label="1">
             <a class="event-slide-link" href="events.html#event-kannada-rajyotsava-2026">
-              <img src="assets/event/event-kannada-rajyotsava-2026-main.jpg" alt="TDKS Kannada Rajyothsava 2026 - Sunday, November 1" class="slide-img event-slide-img" loading="lazy" decoding="async" />
+              <img src="assets/event/kannada-rajyotsava-2026-flyer.jpg" alt="TDKS Kannada Rajyothsava 2026 - Sunday, November 1, 10:30 AM to 3:00 PM at Marsh Creek Elementary School, Brentwood" class="slide-img event-slide-img event-slide-img--poster" loading="lazy" decoding="async" />
               <span class="event-slide-caption">Kannada Rajyothsava - Nov 1, 2026</span>
             </a>
           </div>
@@ -235,6 +320,13 @@
               </figure>
             </div>
           </div>
+
+          <div class="slide" role="group" aria-roledescription="slide" aria-label="6">
+            <a class="sponsor-link" href="https://finlotax.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit Community Sponsor Finlotax website"><figure class="sponsor-figure">
+              <img src="assets/sponsor/sponsor-6-finlotax.jpg" alt="Finlotax - Community Sponsor" class="slide-img" loading="lazy" decoding="async" />
+              <figcaption class="sponsor-caption">Community Sponsor</figcaption>
+            </figure></a>
+          </div>
         </div>
 
         <button class="slider-prev" aria-label="Previous sponsors">‹</button>
@@ -264,6 +356,7 @@
       <h4>Quick Links</h4>
       <ul class="quick-links">
         <li><a href="about.html">About</a></li>
+        <li><a href="bylaws.html">Bylaws</a></li>
         <li><a href="events.html">Events</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
@@ -275,7 +368,7 @@
   </div>
 </footer>
 
-<script src="main.js"></script>
+<script src="main.js?v=20261010c"></script>
 <script>
   // Slider logic: slides arranged horizontally; transform slides container to replace the screen
   (function() {

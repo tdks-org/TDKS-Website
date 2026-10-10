@@ -71,10 +71,34 @@
     if (year) year.textContent = new Date().getFullYear();
   }
 
+  function initAnnouncements() {
+    document.querySelectorAll('.announcement-card').forEach((card) => {
+      const body = card.querySelector('.announcement-body');
+      const toggle = card.querySelector('.announcement-toggle');
+      if (!body || !toggle) return;
+
+      const measure = () => {
+        if (card.classList.contains('is-expanded')) return;
+        card.classList.toggle('is-clamped', body.scrollHeight > body.clientHeight + 1);
+      };
+
+      toggle.addEventListener('click', () => {
+        const expanded = card.classList.toggle('is-expanded');
+        toggle.setAttribute('aria-expanded', String(expanded));
+        toggle.textContent = expanded ? 'Show less' : 'Read more';
+        if (!expanded) card.scrollIntoView({ block: 'nearest' });
+      });
+
+      measure();
+      window.addEventListener('resize', measure);
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     initMobileMenu();
     initHeaderShadow();
     cleanupIndexUrl();
     setFooterYear();
+    initAnnouncements();
   });
 })();
