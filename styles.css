@@ -351,8 +351,11 @@ main{background:transparent}
 @media (max-width: 999px){
   :root{ --slider-height-vh: 40vh; }
   .logo{height:52px}
-  .brand-text{display:none}
-  .brand-tagline{display:none}
+  /* Keep the name + 501(c)(3)/EIN line visible on smaller screens, just smaller */
+  .brand{flex:1; min-width:0}
+  .logo{margin-right:0.6rem}
+  .brand-text{font-size:0.92rem; line-height:1.25}
+  .brand-tagline{font-size:0.72rem; margin-top:0.1rem}
   .nav{display:none}
   .nav.open{display:flex; flex-direction:column; position:fixed; right:0; top: calc(var(--top-strip-height) + var(--header-height)); background:#fff; padding:1rem; box-shadow:0 8px 30px rgba(0,0,0,0.12)}
   .mobile-toggle{display:inline-block}
@@ -954,3 +957,11 @@ body.home .intro .section-card{
 @media (max-width: 700px){
   .announcement-details{ grid-template-columns:1fr; }
 }
+
+/* Header brand on small phones */
+@media (max-width: 420px){
+  .logo{height:46px; margin-right:0.5rem}
+  .brand-text{font-size:0.8rem}
+  .brand-tagline{font-size:0.66rem}
+}
+.nowrap{white-space:nowrap}
