@@ -965,3 +965,6 @@ body.home .intro .section-card{
   .brand-tagline{font-size:0.66rem}
 }
 .nowrap{white-space:nowrap}
+
+/* In-page links (e.g. shared /#announcements links) land below the fixed header */
+html{ scroll-padding-top: calc(var(--top-strip-height) + var(--header-height) + 16px); }
