@@ -91,6 +91,14 @@
 
       measure();
       window.addEventListener('resize', measure);
+
+      // A shared link to this announcement (e.g. /#rajyothsava-2026) opens it expanded
+      if (window.location.hash === '#' + card.id && card.classList.contains('is-clamped')) {
+        card.classList.add('is-expanded');
+        toggle.setAttribute('aria-expanded', 'true');
+        toggle.textContent = 'Show less';
+        card.scrollIntoView();
+      }
     });
   }
 
