@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Site Statistics - TDKS Admin</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20261024">
+</head>
+<body data-no-track>
+  <div class="top-strip" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="./">
+        <img src="assets/logo.png" alt="TDKS logo" class="logo" decoding="async">
+        <span class="brand-copy">
+          <span class="brand-text">ಟ್ರೈ ಡೆಲ್ಟಾ ಕನ್ನಡ ಸಂಘ | Tridelta Kannada Sangha</span>
+          <span class="brand-tagline">A 501(c)(3) Non-Profit Organization <span class="nowrap">(EIN: 39-4010798)</span></span>
+        </span>
+      </a>
+
+      <nav class="nav">
+        <a href="./" class="nav-link">Home</a>
+        <div class="nav-dropdown">
+          <a href="about.html" class="nav-link" aria-haspopup="true">About <span class="nav-caret" aria-hidden="true">▾</span></a>
+          <div class="nav-submenu">
+            <a href="about.html" class="nav-sublink">About TDKS</a>
+            <a href="bylaws.html" class="nav-sublink">Bylaws</a>
+          </div>
+        </div>
+        <a href="events.html" class="nav-link">Events</a>
+        <a href="namma-kannada.html" class="nav-link">Namma Kannada</a>
+        <a href="donate.html" class="nav-link">Donate</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <button class="mobile-toggle" aria-label="Toggle menu">☰</button>
+    </div>
+  </header>
+
+  <main class="content">
+    <section class="page-hero page-hero-compact">
+      <div class="container page-hero-inner page-hero-inner--single">
+        <div class="page-hero-copy">
+          <span class="badge">Administrator</span>
+          <h1 class="page-title">Site Statistics</h1>
+          <p class="page-lead">Visits to www.trideltaks.org, counted from October 2026 onward.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tight-top">
+      <div class="container admin-stats">
+        <div class="admin-toolbar">
+          <div class="admin-range" role="group" aria-label="Date range">
+            <button type="button" data-days="7">7 days</button>
+            <button type="button" data-days="30" aria-pressed="true">30 days</button>
+            <button type="button" data-days="90">90 days</button>
+          </div>
+          <button type="button" class="btn-secondary" id="statsRefresh">Refresh</button>
+          <span class="admin-status" id="statsStatus" role="status"></span>
+        </div>
+
+        <div class="stat-tiles">
+          <div class="stat-tile"><span class="stat-label">Total visits</span><span class="stat-value" id="statTotal">–</span><span class="stat-sub">all time</span></div>
+          <div class="stat-tile"><span class="stat-label">Today</span><span class="stat-value" id="statToday">–</span><span class="stat-sub" id="statTodayDate"></span></div>
+          <div class="stat-tile"><span class="stat-label">Last 7 days</span><span class="stat-value" id="statWeek">–</span><span class="stat-sub">visits</span></div>
+          <div class="stat-tile"><span class="stat-label" id="statRangeLabel">Last 30 days</span><span class="stat-value" id="statRange">–</span><span class="stat-sub" id="statRangeAvg"></span></div>
+        </div>
+
+        <article class="section-card admin-card">
+          <h2 id="chartTitle">Daily visits – last 30 days</h2>
+          <div class="visits-chart" id="visitsChart" aria-describedby="chartTitle">
+            <div class="visits-yaxis" aria-hidden="true"><span id="yMax"></span><span id="yMid"></span><span>0</span></div>
+            <div class="visits-plot">
+              <div class="visits-grid" aria-hidden="true"><span></span><span></span><span></span></div>
+              <div class="visits-bars" id="visitsBars"></div>
+              <div class="visits-tooltip" id="visitsTooltip" role="tooltip" hidden></div>
+            </div>
+          </div>
+          <div class="visits-xaxis" id="visitsXAxis" aria-hidden="true"></div>
+        </article>
+
+        <div class="admin-grid">
+          <article class="section-card admin-card">
+            <h2>Visits by month</h2>
+            <table class="admin-table">
+              <thead><tr><th scope="col">Month</th><th scope="col" class="num">Visits</th></tr></thead>
+              <tbody id="monthRows"></tbody>
+            </table>
+          </article>
+
+          <article class="section-card admin-card">
+            <h2>Page views by page</h2>
+            <table class="admin-table">
+              <thead><tr><th scope="col">Page</th><th scope="col" class="num">Views</th></tr></thead>
+              <tbody id="pageRows"></tbody>
+            </table>
+          </article>
+        </div>
+
+        <p class="admin-note muted">
+          A <strong>visit</strong> is one browser session (refreshing or browsing more pages in the same tab is not counted again);
+          <strong>page views</strong> count every page load. Days follow Pacific time. Local previews and this page are not counted.
+          Counts are kept by the free Abacus counter service; daily counts that go unread for 6 months expire.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <address>
+          5349 High Valley Lane<br>
+          Antioch, CA 94531<br>
+          Phone: +1 (917) 640-4714<br>
+          <a href="mailto:sales.tdks@gmail.com">sales.tdks@gmail.com</a><br>
+          <a href="https://www.instagram.com/tridelatsks/" target="_blank" rel="noopener noreferrer">Instagram</a><br>
+          <a href="https://www.facebook.com/groups/trideltaks/" target="_blank" rel="noopener noreferrer">Facebook</a>
+        </address>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul class="quick-links">
+          <li><a href="about.html">About</a></li>
+          <li><a href="bylaws.html">Bylaws</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <div class="copyright">
+        © <span id="year"></span> TDKS — All rights reserved
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js?v=20261024"></script>
+
+  <script>
+  (function () {
+    const PAGES = [
+      ['home', 'Home'], ['about', 'About'], ['bylaws', 'Bylaws'], ['events', 'Events'],
+      ['past-events', 'Past Events'], ['namma-kannada', 'Namma Kannada'], ['donate', 'Donate'], ['contact', 'Contact']
+    ];
+    const MONTHS = 6;
+    const TRACKING_START_MONTH = '2026-10'; // counting began this month
+    const fmt = new Intl.NumberFormat('en-US');
+    const cache = new Map();
+    let days = 30;
+    let loadId = 0;
+
+    const $ = (id) => document.getElementById(id);
+    const stats = () => window.TDKS_STATS;
+
+    // The counter API allows 30 requests per 10 s per visitor; stay under it.
+    const sent = [];
+    async function throttle() {
+      for (;;) {
+        const now = Date.now();
+        while (sent.length && now - sent[0] > 10500) sent.shift();
+        if (sent.length < 25) { sent.push(now); return; }
+        await new Promise((r) => setTimeout(r, 10500 - (now - sent[0])));
+      }
+    }
+
+    async function getCount(key) {
+      if (cache.has(key)) return cache.get(key);
+      await throttle();
+      try {
+        const res = await fetch(stats().api + '/get/' + stats().ns + '/' + key);
+        const value = res.status === 404 ? 0 : res.ok ? (await res.json()).value : null;
+        if (value !== null) cache.set(key, value);
+        return value;
+      } catch (e) {
+        return null;
+      }
+    }
+
+    function shiftDay(key, delta) {
+      const [y, m, d] = key.split('-').map(Number);
+      return new Date(Date.UTC(y, m - 1, d + delta)).toISOString().slice(0, 10);
+    }
+    function shiftMonth(key, delta) {
+      const [y, m] = key.split('-').map(Number);
+      return new Date(Date.UTC(y, m - 1 + delta, 1)).toISOString().slice(0, 7);
+    }
+    const dayLabel = (key, opts) => new Date(key + 'T12:00:00Z').toLocaleDateString('en-US', Object.assign({ timeZone: 'UTC' }, opts));
+    const show = (n) => (n === null || n === undefined ? '–' : fmt.format(n));
+    const sum = (arr) => arr.reduce((a, b) => a + (b || 0), 0);
+
+    function renderChart(keys, values) {
+      const max = Math.max(1, ...values.map((v) => v || 0));
+      // Round the axis top up to a clean value (4, 10, 15, 20, 25, 30, 40, 50, 60, 80, 100, 150 …)
+      const pow = Math.pow(10, Math.floor(Math.log10(max)));
+      const step = [1, 1.5, 2, 2.5, 3, 4, 5, 6, 8, 10].find((m) => m * pow >= max);
+      const top = Math.max(4, step * pow);
+      $('yMax').textContent = fmt.format(top);
+      $('yMid').textContent = fmt.format(top / 2);
+
+      const bars = $('visitsBars');
+      bars.innerHTML = '';
+      keys.forEach((key, i) => {
+        const v = values[i];
+        const col = document.createElement('div');
+        col.className = 'visits-col';
+        col.tabIndex = 0;
+        col.dataset.label = dayLabel(key, { weekday: 'short', month: 'short', day: 'numeric' });
+        col.dataset.value = v === undefined ? 'Loading…' : show(v) + (v === 1 ? ' visit' : ' visits');
+        col.setAttribute('aria-label', col.dataset.label + ': ' + col.dataset.value);
+        const bar = document.createElement('div');
+        bar.className = 'visits-bar' + (v === undefined ? ' is-pending' : v ? '' : ' is-zero');
+        bar.style.height = ((v || 0) / top * 100) + '%';
+        col.appendChild(bar);
+        bars.appendChild(col);
+      });
+
+      const x = $('visitsXAxis');
+      x.innerHTML = '';
+      [0, Math.floor((keys.length - 1) / 2), keys.length - 1].forEach((i) => {
+        const s = document.createElement('span');
+        s.textContent = dayLabel(keys[i], { month: 'short', day: 'numeric' });
+        x.appendChild(s);
+      });
+    }
+
+    function initTooltip() {
+      const plot = document.querySelector('.visits-plot');
+      const tip = $('visitsTooltip');
+      const showTip = (col) => {
+        tip.innerHTML = '<strong>' + col.dataset.value + '</strong><span>' + col.dataset.label + '</span>';
+        tip.hidden = false;
+        const p = plot.getBoundingClientRect();
+        const c = col.getBoundingClientRect();
+        const left = Math.min(Math.max(c.left - p.left + c.width / 2, 60), p.width - 60);
+        tip.style.left = left + 'px';
+        document.querySelectorAll('.visits-col.is-active').forEach((el) => el.classList.remove('is-active'));
+        col.classList.add('is-active');
+      };
+      const hide = () => {
+        tip.hidden = true;
+        document.querySelectorAll('.visits-col.is-active').forEach((el) => el.classList.remove('is-active'));
+      };
+      plot.addEventListener('mouseover', (e) => { const col = e.target.closest('.visits-col'); if (col) showTip(col); });
+      plot.addEventListener('focusin', (e) => { const col = e.target.closest('.visits-col'); if (col) showTip(col); });
+      plot.addEventListener('mouseleave', hide);
+      plot.addEventListener('focusout', hide);
+    }
+
+    function render(s) {
+      const known = (arr) => arr.filter((v) => v !== undefined);
+      $('statTotal').textContent = s.total === undefined ? '…' : show(s.total);
+      const today = s.days[s.days.length - 1];
+      $('statToday').textContent = today === undefined ? '…' : show(today);
+      const week = s.days.slice(-7);
+      $('statWeek').textContent = known(week).length < week.length ? '…' : show(sum(week));
+      if (known(s.days).length === s.days.length) {
+        const rangeTotal = sum(s.days);
+        $('statRange').textContent = show(rangeTotal);
+        $('statRangeAvg').textContent = fmt.format(Math.round(rangeTotal / s.days.length * 10) / 10) + ' per day on average';
+      } else {
+        $('statRange').textContent = '…';
+        $('statRangeAvg').textContent = '';
+      }
+      renderChart(s.dayKeys, s.days);
+
+      $('monthRows').innerHTML = s.monthKeys.map((k, i) =>
+        '<tr><td>' + dayLabel(k + '-01', { month: 'long', year: 'numeric' }) + '</td><td class="num">' +
+        (s.months[i] === undefined ? '…' : show(s.months[i])) + '</td></tr>'
+      ).join('');
+
+      const pageMax = Math.max(1, ...s.pages.map((v) => v || 0));
+      $('pageRows').innerHTML = PAGES
+        .map(([, name], i) => ({ name, v: s.pages[i] }))
+        .sort((a, b) => (b.v || 0) - (a.v || 0))
+        .map(({ name, v }) =>
+          '<tr><td>' + name + '<span class="page-bar" style="width:' + ((v || 0) / pageMax * 100) + '%"></span></td><td class="num">' +
+          (v === undefined ? '…' : show(v)) + '</td></tr>'
+        ).join('');
+    }
+
+    async function load() {
+      const id = ++loadId;
+      const today = stats().dateKey(new Date());
+      const s = {
+        dayKeys: Array.from({ length: days }, (_, i) => shiftDay(today, i - days + 1)),
+        monthKeys: Array.from({ length: MONTHS }, (_, i) => shiftMonth(today.slice(0, 7), -i)).filter((k) => k >= TRACKING_START_MONTH),
+        total: undefined
+      };
+      s.days = Array.from(s.dayKeys, () => undefined);
+      s.months = Array.from(s.monthKeys, () => undefined);
+      s.pages = Array.from(PAGES, () => undefined);
+
+      $('statRangeLabel').textContent = 'Last ' + days + ' days';
+      $('chartTitle').textContent = 'Daily visits – last ' + days + ' days';
+      $('statTodayDate').textContent = dayLabel(today, { month: 'short', day: 'numeric', year: 'numeric' });
+
+      // Request order = what matters most first: total, newest days, months, pages.
+      const jobs = [['visits-total', (v) => { s.total = v; }]];
+      for (let i = s.dayKeys.length - 1; i >= 0; i--) jobs.push(['visits-d-' + s.dayKeys[i], (v) => { s.days[i] = v; }]);
+      s.monthKeys.forEach((k, i) => jobs.push(['visits-m-' + k, (v) => { s.months[i] = v; }]));
+      PAGES.forEach(([key], i) => jobs.push(['views-page-' + key, (v) => { s.pages[i] = v; }]));
+
+      let done = 0;
+      let failed = false;
+      let frame = 0;
+      const status = () => {
+        $('statsStatus').textContent = done < jobs.length
+          ? 'Loading ' + done + ' of ' + jobs.length + '…'
+          : failed ? 'Some counts could not be loaded – try Refresh in a few seconds.'
+          : 'Updated ' + new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+      };
+      const schedule = () => {
+        if (frame) return;
+        frame = requestAnimationFrame(() => { frame = 0; if (id === loadId) { render(s); status(); } });
+      };
+
+      status();
+      render(s);
+      await Promise.all(jobs.map(([key, set]) => getCount(key).then((v) => {
+        if (id !== loadId) return;
+        if (v === null) failed = true;
+        set(v);
+        done++;
+        schedule();
+      })));
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initTooltip();
+      document.querySelectorAll('.admin-range button').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.admin-range button').forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
+          days = Number(btn.dataset.days);
+          load();
+        });
+      });
+      $('statsRefresh').addEventListener('click', () => { cache.clear(); load(); });
+      load();
+    });
+  })();
+  </script>
+</body>
+</html>
